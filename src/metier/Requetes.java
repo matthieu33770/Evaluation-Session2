@@ -4,14 +4,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import connection.AccessBD;
-import fr.bouget.connection.AccesBD;
-import fr.bouget.metier.Mapping;
-import fr.bouget.model.Pilote;
 import model.Apprenant;
-
-import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.DriverManager;
+
 
 public class Requetes {
 
