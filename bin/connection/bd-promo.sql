@@ -1,1 +1,1 @@
-SELECT * FROM apprenant
+select * from apprenant
