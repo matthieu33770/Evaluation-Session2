@@ -25,7 +25,7 @@ public class Main {
 					try {
 						// Requêtes nom prénom Apprenants
 						System.out.println("=================================================================");
-						System.out.println("\nListe des Apprenants avec getAllApprenant");
+						System.out.println("\nListe des Apprenants");
 						for (Apprenant apprenant : metier.Requetes.getAllApprenant()) {
 							System.out.println(apprenant.afficherNomPrenom());
 						}
@@ -39,7 +39,7 @@ public class Main {
 					try {
 						// Requêtes Apprenants par Region
 						System.out.println("=================================================================");
-						System.out.println("\nListe des Apprenants avec getAllApprenant");
+						System.out.println("\nListe des Apprenants par Région");
 						for (Apprenant apprenant : metier.Requetes.getApprenantByRegion()) {
 							System.out.println(apprenant.afficheApprenantByRegion());
 						}
