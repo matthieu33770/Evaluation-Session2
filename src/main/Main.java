@@ -3,8 +3,8 @@ package main;
 import java.sql.SQLException;
 
 import model.Apprenant;
-
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class Main {
 
@@ -18,7 +18,8 @@ public class Main {
 			System.out.println("Menu :");
 			System.out.println("1 - Afficher les noms et prenoms des apprenants");
 			System.out.println("2 - Afficher la liste des apprenants par région");
-			System.out.println("3 - Quitter");
+			System.out.println("3 - Afficher la liste des apprenants par région by id");
+			System.out.println("4 - Quitter");
 			ch = sc.nextInt();
 			
 			switch (ch) {
@@ -41,6 +42,7 @@ public class Main {
 						// Requêtes Apprenants par Region
 						System.out.println("=================================================================");
 						System.out.println("\nListe des Apprenants par Région");
+
 						for (Apprenant apprenant : metier.Requetes.getApprenantByRegion()) {
 							System.out.println(apprenant.afficheApprenantByRegion());
 						}
@@ -51,12 +53,21 @@ public class Main {
 					}
 					break;
 				case 3:
+					try {
+						System.out.println(metier.Requetes.getApprenantById(Integer.parseInt(JOptionPane.showInputDialog("Saisissez un numéro de région (entre 1 et 3) pour afficher les étudiants concernés"))));
+					} catch (ClassNotFoundException e) {
+						e.printStackTrace();
+					} catch (SQLException e) {	
+						e.printStackTrace();
+					}
+					break;
+				case 4:
 					System.out.println("Au revoir & merci !");
 					break;
 				default:
 					break;
 			}
 		}
-		while(ch!=3);			
+		while(ch!=4);			
 	}
 }

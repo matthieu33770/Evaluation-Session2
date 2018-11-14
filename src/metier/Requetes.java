@@ -7,6 +7,7 @@ import connection.AccessBD;
 import model.Apprenant;
 import model.Region;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 
@@ -44,6 +45,20 @@ public class Requetes {
 			apprenants.add(a);
 		}
 		return apprenants;
+	}
+	
+	public static Apprenant getApprenantById(int id) throws ClassNotFoundException, SQLException {
+		
+		Apprenant apprenant = new Apprenant();
+		
+		PreparedStatement aPreparedStatement = AccessBD.getConnection().prepareStatement("SELECT * FROM apprenant WHERE id_region = ?");
+		aPreparedStatement.setInt(1,id);
+		ResultSet resultat = aPreparedStatement.executeQuery();
+		resultat.next();
+		apprenant.setRegion(Requetes.getRegionById(resultat.getInt("id_region")));
+		apprenant.setNom(resultat.getString("nom"));
+		apprenant.setPrenom(resultat.getString("prenom"));
+		return apprenant;	
 	}
 	
 	public static ArrayList<Region> getAllRegion() throws ClassNotFoundException, SQLException {
