@@ -14,12 +14,12 @@ public class Requetes {
 
 	{
 		ArrayList<Apprenant>  apprenants = new ArrayList<Apprenant>();
-		String requete	= "SELECT nom, prenom FROM apprenant ";
+		String requete	= "SELECT * FROM apprenant ";
 		ResultSet resultat = AccessBD.executerQuery(requete);
 		while(resultat.next())
 		{
-			Apprenant p = Mapping.mapperApprenant(resultat);
-			apprenants.add(p);
+			Apprenant a = Mapping.mapperApprenant(resultat);
+			apprenants.add(a);
 		}
 		return apprenants;
 	}

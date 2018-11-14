@@ -14,7 +14,7 @@ public class Main {
 				System.out.println("=================================================================");
 				System.out.println("\nListe des Apprenants avec getAllApprenant");
 				for (Apprenant apprenant : metier.Requetes.getAllApprenant()) {
-					System.out.println(apprenant + "\n");
+					System.out.println(apprenant.afficherNomPrenom());
 				}
 		} catch (ClassNotFoundException e) {
 			

@@ -10,7 +10,7 @@ public class Mapping {
 	public static Apprenant mapperApprenant(ResultSet resultat) throws SQLException
 	{
 		Apprenant apprenant = new Apprenant();
-		apprenant.setId(resultat.getInt("id"));
+		//apprenant.setId(resultat.getInt("id"));
 		apprenant.setNom(resultat.getString("nom"));
 		apprenant.setPrenom(resultat.getString("prenom"));
 		apprenant.setDateNaissance(resultat.getDate("dateNaissance"));
