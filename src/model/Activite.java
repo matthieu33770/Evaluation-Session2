@@ -4,6 +4,10 @@ public class Activite {
 	private int id;
 	private String activite;
 	
+	public Activite() {
+		
+	}
+	
 	public Activite(int id, String activite) {
 		
 		this.id = id;
