@@ -3,7 +3,6 @@ package main;
 import java.sql.SQLException;
 
 import model.Apprenant;
-import model.Region;
 
 import java.util.Scanner;
 
@@ -43,7 +42,7 @@ public class Main {
 						System.out.println("=================================================================");
 						System.out.println("\nListe des Apprenants par Région");
 						for (Apprenant apprenant : metier.Requetes.getApprenantByRegion()) {
-							System.out.println(apprenant);
+							System.out.println(apprenant.afficheApprenantByRegion());
 						}
 					} catch (ClassNotFoundException e) {
 						e.printStackTrace();
