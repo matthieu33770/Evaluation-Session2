@@ -17,7 +17,7 @@ public class Mapping {
 		apprenant.setDateNaissance(resultat.getDate("dateNaissance"));
 		apprenant.setEmail(resultat.getString("email"));
 		apprenant.setPhoto(resultat.getString("photo"));
-		apprenant.setRegion(Requetes.getRegionById(resultat.getInt("nom")));
+		apprenant.setRegion(Requetes.getRegionById(resultat.getInt("RE_NOM")));
 		
 		return apprenant;
 		

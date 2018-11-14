@@ -26,7 +26,7 @@ public class Requetes {
 	  
 	public static Region getRegionById(int id) throws ClassNotFoundException, SQLException {
 		Region region = new Region();
-		String requete	= "SELECT * FROM region WHERE id="+id;
+		String requete	= "SELECT * FROM region WHERE RE_ID="+id;
 		ResultSet resultat = AccessBD.executerQuery(requete);
 		resultat.next();
 		region.setId(resultat.getInt("RE_ID"));
