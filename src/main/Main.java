@@ -1,10 +1,11 @@
 package main;
 
 import java.sql.SQLException;
+import java.util.Scanner;
+
+import javax.swing.JOptionPane;
 
 import model.Apprenant;
-import java.util.Scanner;
-import javax.swing.JOptionPane;
 
 public class Main {
 

@@ -51,7 +51,7 @@ public class Requetes {
 		
 		Apprenant apprenant = new Apprenant();
 		
-		PreparedStatement aPreparedStatement = AccessBD.getConnection().prepareStatement("SELECT * FROM apprenant WHERE id_region = ?");
+		PreparedStatement aPreparedStatement = AccessBD.getConnection().prepareStatement("SELECT * FROM apprenant WHERE id_Region = ?");
 		aPreparedStatement.setInt(1,id);
 		ResultSet resultat = aPreparedStatement.executeQuery();
 		resultat.next();
