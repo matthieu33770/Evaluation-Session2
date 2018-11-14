@@ -23,7 +23,7 @@ public class Main {
 			switch (ch) {
 				case 1:
 					try {
-						// Les requêtes SELECT
+						// Requêtes nom prénom Apprenants
 						System.out.println("=================================================================");
 						System.out.println("\nListe des Apprenants avec getAllApprenant");
 						for (Apprenant apprenant : metier.Requetes.getAllApprenant()) {
@@ -36,6 +36,18 @@ public class Main {
 					}
 					break;
 				case 2:
+					try {
+						// Requêtes Apprenants par Region
+						System.out.println("=================================================================");
+						System.out.println("\nListe des Apprenants avec getAllApprenant");
+						for (Apprenant apprenant : metier.Requetes.getApprenantByRegion()) {
+							System.out.println(apprenant.afficheApprenantByRegion());
+						}
+					} catch (ClassNotFoundException e) {
+						e.printStackTrace();
+					} catch (SQLException e) {	
+						e.printStackTrace();
+					}
 					break;
 				case 3:
 					System.out.println("Au revoir !");

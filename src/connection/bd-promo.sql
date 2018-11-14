@@ -1,1 +1,1 @@
-select * from apprenant
+SELECT RE_NOM, nom, prenom FROM apprenant INNER JOIN region ON apprenant.id_region = region.RE_ID;

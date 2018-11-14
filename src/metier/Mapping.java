@@ -33,8 +33,8 @@ public class Mapping {
 	
 	public static Region mapperRegion(ResultSet resultat) throws SQLException {
 		Region region = new Region();
-		region.setId(resultat.getInt("id"));
-		region.setNom(resultat.getString("nom"));
+		region.setId(resultat.getInt("RE_ID"));
+		region.setNom(resultat.getString("RE_NOM"));
 		
 		return region;
 	}
