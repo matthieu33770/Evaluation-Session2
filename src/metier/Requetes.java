@@ -45,4 +45,16 @@ public class Requetes {
 		}
 		return apprenants;
 	}
+	
+	public static ArrayList<Region> getAllRegion() throws ClassNotFoundException, SQLException {
+		ArrayList<Region>  regions = new ArrayList<Region>();
+		String requete = "SELECT * FROM region";
+		ResultSet resultat = AccessBD.executerQuery(requete);
+		while(resultat.next())
+		{
+			Region r = Mapping.mapperRegion(resultat);
+			regions.add(r);
+		}
+		return regions;
+	}
 }
