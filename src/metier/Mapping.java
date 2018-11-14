@@ -3,6 +3,7 @@ package metier;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import model.Activite;
 import model.Apprenant;
 import model.Region;
 
@@ -20,6 +21,14 @@ public class Mapping {
 		
 		return apprenant;
 		
+	}
+	
+	public static Activite mapperActivite(ResultSet resultat) throws SQLException {
+		Activite activite = new Activite();
+		activite.setId(resultat.getInt("id"));
+		activite.setActivite(resultat.getString("nom"));
+		
+		return activite;
 	}
 	
 	public static Region mapperRegion(ResultSet resultat) throws SQLException {
