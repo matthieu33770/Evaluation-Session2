@@ -1,1 +1,59 @@
+#------------------------------------------------------------
+#        Script MySQL.
+#------------------------------------------------------------
+
+
+#------------------------------------------------------------
+# Table: Activite
+#------------------------------------------------------------
+
+CREATE TABLE Activite(
+        id  Int NOT NULL ,
+        nom Varchar (100) NOT NULL
+	,CONSTRAINT Activite_PK PRIMARY KEY (id)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Region
+#------------------------------------------------------------
+
+CREATE TABLE Region(
+        id  Int  Auto_increment  NOT NULL ,
+        nom Varchar (100) NOT NULL
+	,CONSTRAINT Region_PK PRIMARY KEY (id)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Apprenant
+#------------------------------------------------------------
+
+CREATE TABLE Apprenant(
+        id            Int  Auto_increment  NOT NULL ,
+        nom           Varchar (50) NOT NULL ,
+        prenom        Varchar (50) NOT NULL ,
+        dateNaissance Date NOT NULL ,
+        email         Varchar (100) NOT NULL ,
+        photo         Longblob NOT NULL ,
+        id_Region     Int NOT NULL
+	,CONSTRAINT Apprenant_PK PRIMARY KEY (id)
+
+	,CONSTRAINT Apprenant_Region_FK FOREIGN KEY (id_Region) REFERENCES Region(id)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: possede
+#------------------------------------------------------------
+
+CREATE TABLE possede(
+        id           Int NOT NULL ,
+        id_Apprenant Int NOT NULL
+	,CONSTRAINT possede_PK PRIMARY KEY (id,id_Apprenant)
+
+	,CONSTRAINT possede_Activite_FK FOREIGN KEY (id) REFERENCES Activite(id)
+	,CONSTRAINT possede_Apprenant0_FK FOREIGN KEY (id_Apprenant) REFERENCES Apprenant(id)
+)ENGINE=InnoDB;
+
 
