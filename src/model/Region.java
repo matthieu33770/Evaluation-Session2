@@ -32,7 +32,7 @@ public class Region {
 
 		@Override
 		public String toString() {
-			return "Region nom :" + nom + "]";
+			return "Region nom :" + nom;
 		}
 		
 		

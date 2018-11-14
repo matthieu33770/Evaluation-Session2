@@ -86,7 +86,7 @@ public class Apprenant {
 		@Override
 		public String toString() {
 			return "Apprenant nom : " + nom + ", prenom : " + prenom + ", dateNaissance : " + dateNaissance
-					+ ", email : " + email + ", photo : " + photo + ", region : " + region + "]";
+					+ ", email : " + email + ", photo : " + photo + ", region : " + region;
 		}
 		
 		
