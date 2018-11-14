@@ -2,7 +2,6 @@ package metier;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import model.Apprenant;
 
 public class Mapping {
