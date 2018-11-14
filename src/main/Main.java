@@ -52,10 +52,9 @@ public class Main {
 					}
 					break;
 				case 3:
-					System.out.println("Au revoir !");
+					System.out.println("Au revoir & merci !");
 					break;
 				default:
-					
 					break;
 			}
 		}
