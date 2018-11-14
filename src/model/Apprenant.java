@@ -90,6 +90,6 @@ public class Apprenant {
 		}
 		
 		public String afficherNomPrenom() {
-			return "Apprenant nom : " + nom + ", prenom : " + prenom;
+			return "Apprenant " + nom + ", " + prenom;
 		}
 }
