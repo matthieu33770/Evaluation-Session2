@@ -1,22 +1,22 @@
 package model;
 
-import javax.xml.crypto.Data;
+import java.util.Date;
 
 public class Apprenant {
 
 		private int id;
 		private String nom;
 		private String prenom;
-		private Data dateNaissance;
+		private Date dateNaissance;
 		private String email;
-		private Long photo;
+		private String photo;
 		private Region region;
 		
 		public Apprenant() {
 			super();
 		}
 
-		public Apprenant(int id, String nom, String prenom, Data dateNaissance, String email, Long photo,
+		public Apprenant(int id, String nom, String prenom, Date dateNaissance, String email, String photo,
 				Region region) {
 			this.id = id;
 			this.nom = nom;
@@ -51,11 +51,11 @@ public class Apprenant {
 			this.prenom = prenom;
 		}
 
-		public Data getDateNaissance() {
+		public Date getDateNaissance() {
 			return dateNaissance;
 		}
 
-		public void setDateNaissance(Data dateNaissance) {
+		public void setDateNaissance(Date dateNaissance) {
 			this.dateNaissance = dateNaissance;
 		}
 
@@ -67,11 +67,11 @@ public class Apprenant {
 			this.email = email;
 		}
 
-		public Long getPhoto() {
+		public String getPhoto() {
 			return photo;
 		}
 
-		public void setPhoto(Long photo) {
+		public void setPhoto(String photo) {
 			this.photo = photo;
 		}
 
