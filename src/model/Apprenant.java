@@ -10,14 +10,14 @@ public class Apprenant {
 		private String naissance;
 		private String email;
 		private String photo;
-		private Region region;
+		private int region;
 		
 		public Apprenant() {
 			super();
 		}
 
 		public Apprenant(int id, String nom, String prenom, String naissance, String email, String photo,
-				Region region) {
+				int region) {
 			this.id = id;
 			this.nom = nom;
 			this.prenom = prenom;
@@ -76,10 +76,10 @@ public class Apprenant {
 		}
 
 		public int getRegion() {
-			return 0;
+			return region;
 		}
 
-		public void setRegion(Region region) {
+		public void setRegion(int region) {
 			this.region = region;
 		}
 

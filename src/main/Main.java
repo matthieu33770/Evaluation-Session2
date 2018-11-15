@@ -129,9 +129,7 @@ public class Main {
 						app.setPhoto(saisie5);
 						sc1 = sc.nextInt();
 						System.out.println("Pour quel département ?");
-						Region reg = new Region();
-						reg.setId(sc1);
-						app.setRegion(reg);
+						app.setRegion(sc1);
 						
 						Requetes.ajouterAppr(app);
 					} catch (SQLException e) {	
