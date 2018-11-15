@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
+import metier.Requetes;
 import model.Activite;
 import model.Apprenant;
 
@@ -15,7 +16,8 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		int ch;
+		int ch, sc1;
+		String saisie1, saisie2, saisie3, saisie4, saisie5, saisie6, saisie7;
 		
 		do {
 			System.out.println("Menu :");
@@ -24,7 +26,8 @@ public class Main {
 			System.out.println("3 - Afficher la liste des apprenants selon une région");
 			System.out.println("4 - Afficher la liste des activités selon un apprenant");
 			System.out.println("5 - Afficher la liste des apprenant pour une activité");
-			System.out.println("6 - Quitter");
+			System.out.println("6 - Ajouter un apprenant");
+			System.out.println("7 - Quitter");
 			ch = sc.nextInt();
 			
 			switch (ch) {
@@ -104,13 +107,34 @@ public class Main {
 					};
 					break;
 				case 6:
+					try {
+						Apprenant app = new Apprenant();
+						System.out.print("Quel est son nom ? ");
+						saisie1 = sc.nextLine();
+						System.out.print("\nQuel est son prénom ?");
+						saisie2 = sc.nextLine();
+						System.out.print("\nQuel est sa date de naissance ?");
+						saisie3 = sc.nextLine();
+						System.out.print("\nQuel est son email ?");
+						saisie4 = sc.nextLine();
+						System.out.print("\nJoindre une photo ?");
+						saisie5 = sc.nextLine();
+						System.out.print("\nPour quel département ?");
+						sc1 = sc.nextInt();
+						
+						Requetes.ajouterAppr(app);
+					} catch (SQLException e) {	
+							e.printStackTrace();
+					};
+					break;
+				case 7:
 					System.out.println("Merci & au revoir !");
 					break;
 				default:
 					break;
 			}
 		}
-		while(ch!=5);	
+		while(ch!=7);	
 		//essai
 	}
 }

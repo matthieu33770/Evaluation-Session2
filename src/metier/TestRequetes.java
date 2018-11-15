@@ -8,18 +8,7 @@ import model.Apprenant;
 
 public class TestRequetes {
 	
-	public static void ajouterAppr(Apprenant apprenant) throws SQLException
-	{
-		PreparedStatement prepareStatement = AccessBD.getConnection().prepareStatement("INSERT INTO `apprenant` VALUES( ? , ? , ? , ? , ? , ? , ?)");
-		prepareStatement.setInt(1,apprenant.getId());
-		prepareStatement.setString(2,apprenant.getPrenom());
-		prepareStatement.setString(3,apprenant.getNom());
-		prepareStatement.setDate(4, apprenant.getnaissance());
-		prepareStatement.setString(5, apprenant.getEmail());
-		prepareStatement.setString(6, apprenant.getPhoto());
-		//prepareStatement.setInt(7, apprenant.getRegion());
-		prepareStatement.executeUpdate();
-	}
+	
 	/**
 	public static void modifierApprenant(Apprenant apprenant) throws SQLException
 	{
