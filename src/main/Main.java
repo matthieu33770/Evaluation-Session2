@@ -91,9 +91,9 @@ public class Main {
 				case 5:
 					try {
 						ArrayList<Activite> appByAct = new ArrayList<>();
-						String nom = JOptionPane.showInputDialog("Choisir le numéro d'une activité :");
-						appByAct = (metier.Requetes.getApprenantByActivity(nom));
-						System.out.println("L'activité "+ nom + " est faite par :" + nom + nom);
+						int id = Integer.parseInt(JOptionPane.showInputDialog("Choisir le numéro d'une activité :"));
+						appByAct = (metier.Requetes.getApprenantByActivity(id));
+						System.out.println("L'activité "+ id + " est faite par :");
 						for (Activite activite : appByAct) {
 							System.out.println(activite);
 						}
