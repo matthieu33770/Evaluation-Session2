@@ -154,6 +154,9 @@ public class Main {
 					avoir.setId_Act(sc2);					
 					
 					avoir.setId_App(Requetes.getNombreDApprenant());
+					
+					Requetes.ajouterAct(avoir);
+					System.out.println("L'activite " + sc2 + " est ajoute a " + Requetes.getNombreDApprenant());
 					} catch (SQLException e) {	
 						e.printStackTrace();
 					};
