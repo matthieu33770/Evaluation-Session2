@@ -12,7 +12,7 @@ public class Mapping {
 	
 	public static Apprenant mapperApprenant(ResultSet resultat) throws SQLException, ClassNotFoundException{
 		Apprenant apprenant = new Apprenant();
-		//apprenant.setId(resultat.getInt("id"));
+		apprenant.setId(resultat.getInt("id"));
 		apprenant.setNom(resultat.getString("nom"));
 		apprenant.setPrenom(resultat.getString("prenom"));
 		apprenant.setDateNaissance(resultat.getDate("date"));
@@ -43,7 +43,7 @@ public class Mapping {
 	public static Avoir mapperAvoir(ResultSet resultat) throws SQLException, ClassNotFoundException{
 		Avoir avoir = new Avoir();
 		avoir.setId_Act(Requetes.getActiviteById(resultat.getInt("AC_ID")));
-		avoir.setId_App(Requetes.getApprenantById1(resultat.getInt("AC_NOM")));
+		avoir.setId_App(Requetes.getApprenantById1(resultat.getInt("id")));
 		
 		return avoir;
 	}

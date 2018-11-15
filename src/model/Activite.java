@@ -32,6 +32,6 @@ public class Activite {
 	
 	@Override
 	public String toString() {
-		return "Activite: numéro = " + id + "activite: "+ activite;
+		return "Activite " + id + " : "+ activite;
 				}
 }

@@ -1,10 +1,12 @@
 package main;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
+import model.Activite;
 import model.Apprenant;
 
 public class Main {
@@ -19,8 +21,9 @@ public class Main {
 			System.out.println("Menu :");
 			System.out.println("1 - Afficher les noms et prenoms des apprenants");
 			System.out.println("2 - Afficher la liste des apprenants par région");
-			System.out.println("3 - Afficher la liste des apprenants par région by id Région");
-			System.out.println("4 - Quitter");
+			System.out.println("3 - Afficher la liste des apprenants selon une région");
+			System.out.println("4 - Afficher la liste des activités selon un apprenant");
+			System.out.println("5 - Quitter");
 			ch = sc.nextInt();
 			
 			switch (ch) {
@@ -63,12 +66,27 @@ public class Main {
 					}
 					break;
 				case 4:
+					try {
+						ArrayList<Activite> actByApp = new ArrayList<>();
+						String nom = JOptionPane.showInputDialog("Choisir le nom d'un étudiant :");
+						actByApp = (metier.Requetes.getActiviteByApprenant(nom));
+						System.out.println("Les activités de "+ nom + " sont :");
+						for (Activite activite : actByApp) {
+							System.out.println(activite);
+						}
+					} catch (ClassNotFoundException e) {
+						e.printStackTrace();
+					} catch (SQLException e) {	
+						e.printStackTrace();
+					}
+					break;
+				case 5:
 					System.out.println("Au revoir & merci !");
 					break;
 				default:
 					break;
 			}
 		}
-		while(ch!=4);			
+		while(ch!=5);			
 	}
 }
