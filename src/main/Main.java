@@ -1,5 +1,6 @@
 package main;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -9,6 +10,7 @@ import javax.swing.JOptionPane;
 import metier.Requetes;
 import model.Activite;
 import model.Apprenant;
+import model.Region;
 
 public class Main {
 
@@ -16,7 +18,8 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		int ch, sc1;
+		int ch;
+		int sc1;
 		String saisie1, saisie2, saisie3, saisie4, saisie5, saisie6, saisie7;
 		
 		do {
@@ -109,18 +112,27 @@ public class Main {
 				case 6:
 					try {
 						Apprenant app = new Apprenant();
-						System.out.print("Quel est son nom ? ");
+						app.setId(Requetes.getNombreDApprenant()+1);
 						saisie1 = sc.nextLine();
-						System.out.print("\nQuel est son prénom ?");
+						System.out.println("Quel est son nom ?");
+						app.setNom(saisie1);
 						saisie2 = sc.nextLine();
-						System.out.print("\nQuel est sa date de naissance ?");
+						System.out.println("Quel est son prénom ?");
+						app.setPrenom(saisie2);
 						saisie3 = sc.nextLine();
-						System.out.print("\nQuel est son email ?");
+						System.out.println("Quel est sa date de naissance ? (format aaaa-mm-jj)");
+						app.setnaissance(Date.valueOf(saisie3));
 						saisie4 = sc.nextLine();
-						System.out.print("\nJoindre une photo ?");
+						System.out.println("Quel est son email ?");
+						app.setEmail(saisie4);
 						saisie5 = sc.nextLine();
-						System.out.print("\nPour quel département ?");
+						System.out.println("Joindre une photo ?");
+						app.setPhoto(saisie5);
 						sc1 = sc.nextInt();
+						System.out.println("Pour quel département ?");
+						Region reg = new Region();
+						reg.setId(sc1);
+						app.setRegion(reg);
 						
 						Requetes.ajouterAppr(app);
 					} catch (SQLException e) {	
