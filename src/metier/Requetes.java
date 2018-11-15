@@ -85,7 +85,7 @@ public class Requetes {
 		
 		ArrayList<Apprenant> apprenants = new ArrayList<>();
 		
-		PreparedStatement aPreparedStatement = AccessBD.getConnection().prepareStatement("SELECT apprenant.nom, apprenant.prenom, region.RE_NOM FROM apprenant INNER JOIN region ON apprenant.id_region = region.RE_ID WHERE region.RE_NOM = ?");
+		PreparedStatement aPreparedStatement = AccessBD.getConnection().prepareStatement("SELECT * FROM apprenant INNER JOIN region ON apprenant.id_region = region.RE_ID WHERE region.RE_NOM = ?");
 		aPreparedStatement.setString(1,id);
 		ResultSet resultat = aPreparedStatement.executeQuery();
 		while (resultat.next()) {
