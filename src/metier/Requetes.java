@@ -69,21 +69,6 @@ public class Requetes {
 		return apprenants;
 	}
 	
-	public static Apprenant getApprenantByIdRegion(int id) throws ClassNotFoundException, SQLException {
-		
-		Apprenant apprenant = new Apprenant();
-		
-		PreparedStatement aPreparedStatement = AccessBD.getConnection().prepareStatement("SELECT * FROM apprenant WHERE id_Region = ?");
-		aPreparedStatement.setInt(1,id);
-		ResultSet resultat = aPreparedStatement.executeQuery();
-		resultat.next();
-		apprenant.setRegion(Requetes.getRegionById(resultat.getInt("id_region")));
-		apprenant.setNom(resultat.getString("nom"));
-		apprenant.setPrenom(resultat.getString("prenom"));
-		apprenant.afficheApprenantByRegion();
-		return apprenant;	
-	}
-	
 	public static ArrayList<Region> getAllRegion() throws ClassNotFoundException, SQLException {
 		ArrayList<Region>  regions = new ArrayList<Region>();
 		String requete = "SELECT * FROM region";
@@ -94,6 +79,20 @@ public class Requetes {
 			regions.add(r);
 		}
 		return regions;
+	}
+	
+	public static ArrayList<Apprenant> getApprenantByIdRegion(String id) throws ClassNotFoundException, SQLException {
+		
+		ArrayList<Apprenant> apprenants = new ArrayList<>();
+		
+		PreparedStatement aPreparedStatement = AccessBD.getConnection().prepareStatement("SELECT apprenant.nom, apprenant.prenom, region.RE_NOM FROM apprenant INNER JOIN region ON apprenant.id_region = region.RE_ID WHERE region.RE_NOM = ?");
+		aPreparedStatement.setString(1,id);
+		ResultSet resultat = aPreparedStatement.executeQuery();
+		while (resultat.next()) {
+			Apprenant apprenantss = Mapping.mapperApprenant(resultat);
+			apprenants.add(apprenantss);
+		}
+		return apprenants;	
 	}
 	
 	public static ArrayList<Activite> getActiviteByApprenant(String nom) throws ClassNotFoundException, SQLException {

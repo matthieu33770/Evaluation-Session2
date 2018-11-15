@@ -58,7 +58,13 @@ public class Main {
 					break;
 				case 3:
 					try {
-						System.out.println(metier.Requetes.getApprenantByIdRegion(Integer.parseInt(JOptionPane.showInputDialog("Saisissez un numéro de région (entre 1 et 3) pour afficher les étudiants concernés"))));
+						ArrayList<Apprenant> appByReg = new ArrayList<>();
+						String reg = JOptionPane.showInputDialog("Saisissez la région (en toutes lettres) pour afficher les étudiants concernés");
+						appByReg = (metier.Requetes.getApprenantByIdRegion(reg));
+						System.out.println("Les apprenants pour la région " + reg + " sont :");
+						for ( Apprenant apprenant : appByReg) {
+							System.out.println(apprenant.afficheApprenantByRegion());
+						}
 					} catch (ClassNotFoundException e) {
 						e.printStackTrace();
 					} catch (SQLException e) {	
@@ -69,7 +75,7 @@ public class Main {
 				case 4:
 					try {
 						ArrayList<Activite> actByApp = new ArrayList<>();
-						String nom = JOptionPane.showInputDialog("Choisir le nom d'un étudiant :");
+						String nom = JOptionPane.showInputDialog("Choisir le nom d'un étudiant (commencant par un maj) :");
 						actByApp = (metier.Requetes.getActiviteByApprenant(nom));
 						System.out.println("Les activités de "+ nom + " sont :");
 						for (Activite activite : actByApp) {
@@ -82,7 +88,7 @@ public class Main {
 					}
 					break;
 				case 5:
-					System.out.println("Au revoir & merci !");
+					System.out.println("Merci & au revoir !");
 					break;
 				default:
 					break;

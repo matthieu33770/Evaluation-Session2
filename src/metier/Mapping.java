@@ -12,10 +12,10 @@ public class Mapping {
 	
 	public static Apprenant mapperApprenant(ResultSet resultat) throws SQLException, ClassNotFoundException{
 		Apprenant apprenant = new Apprenant();
-		apprenant.setId(resultat.getInt("id"));
+		//apprenant.setId(resultat.getInt("id"));
 		apprenant.setNom(resultat.getString("nom"));
 		apprenant.setPrenom(resultat.getString("prenom"));
-		apprenant.setDateNaissance(resultat.getDate("date"));
+		//apprenant.setDateNaissance(resultat.getDate("date"));
 		apprenant.setEmail(resultat.getString("email"));
 		apprenant.setPhoto(resultat.getString("photo"));
 		apprenant.setRegion(Requetes.getRegionById(resultat.getInt("id_region")));
