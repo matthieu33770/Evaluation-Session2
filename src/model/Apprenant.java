@@ -4,9 +4,9 @@ import java.sql.Date;
 
 public class Apprenant {
 
-		private int id;
-		private String nom;
+		private int id;		
 		private String prenom;
+		private String nom;
 		private String naissance;
 		private String email;
 		private String photo;
@@ -16,11 +16,11 @@ public class Apprenant {
 			super();
 		}
 
-		public Apprenant(int id, String nom, String prenom, String naissance, String email, String photo,
+		public Apprenant(int id, String prenom, String nom, String naissance, String email, String photo,
 				int region) {
 			this.id = id;
-			this.nom = nom;
 			this.prenom = prenom;
+			this.nom = nom;
 			this.naissance = naissance;
 			this.email = email;
 			this.photo = photo;
