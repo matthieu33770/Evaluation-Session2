@@ -138,7 +138,7 @@ public class Main {
 						
 						Requetes.ajouterAppr(app);
 						
-						System.out.println("Apprenant " + saisie1 + "ajoute");
+						System.out.println("Apprenant " + saisie1 + " " + saisie2 + " ajoute");
 					} catch (SQLException e) {	
 							e.printStackTrace();
 					};
