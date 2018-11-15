@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import connection.AccessBD;
+import model.Activite;
 import model.Apprenant;
 import model.Region;
 
@@ -33,6 +34,27 @@ public class Requetes {
 		region.setId(resultat.getInt("RE_ID"));
 		region.setNom(resultat.getString("RE_NOM"));
 		return region;	
+	}
+	
+	public static Apprenant getApprenantById1(int id) throws ClassNotFoundException, SQLException {
+		Apprenant apprenant = new Apprenant();
+		String requete	= "SELECT * FROM apprenant WHERE RE_ID="+id;
+		ResultSet resultat = AccessBD.executerQuery(requete);
+		resultat.next();
+		apprenant.setId(resultat.getInt("id"));
+		apprenant.setNom(resultat.getString("nom"));
+		apprenant.setPrenom(resultat.getString("prenom"));
+		return apprenant;	
+	}
+	
+	public static Activite getActiviteById(int id) throws ClassNotFoundException, SQLException {
+		Activite activite = new Activite();
+		String requete	= "SELECT * FROM activite WHERE RE_ID="+id;
+		ResultSet resultat = AccessBD.executerQuery(requete);
+		resultat.next();
+		activite.setId(resultat.getInt("AC_ID"));
+		activite.setActivite(resultat.getString("AC_NOM"));;
+		return activite;	
 	}
 	
 	public static ArrayList<Apprenant> getApprenantByRegion() throws ClassNotFoundException, SQLException {

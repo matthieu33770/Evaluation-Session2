@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import model.Activite;
 import model.Apprenant;
+import model.Avoir;
 import model.Region;
 
 public class Mapping {
@@ -25,8 +26,8 @@ public class Mapping {
 	
 	public static Activite mapperActivite(ResultSet resultat) throws SQLException {
 		Activite activite = new Activite();
-		activite.setId(resultat.getInt("id"));
-		activite.setActivite(resultat.getString("nom"));
+		activite.setId(resultat.getInt("AC_ID"));
+		activite.setActivite(resultat.getString("AC_NOM"));
 		
 		return activite;
 	}
@@ -37,6 +38,14 @@ public class Mapping {
 		region.setNom(resultat.getString("RE_NOM"));
 		
 		return region;
+	}
+	
+	public static Avoir mapperAvoir(ResultSet resultat) throws SQLException, ClassNotFoundException{
+		Avoir avoir = new Avoir();
+		avoir.setId_Act(Requetes.getActiviteById(resultat.getInt("AC_ID")));
+		avoir.setId_App(Requetes.getApprenantById1(resultat.getInt("AC_NOM")));
+		
+		return avoir;
 	}
 
 }
