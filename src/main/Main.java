@@ -112,13 +112,13 @@ public class Main {
 						Apprenant app = new Apprenant();
 						app.setId(Requetes.getNombreDApprenant()+1);
 						
-						System.out.println("Quel est son nom ?");
-						saisie1 = sc.nextLine();
-						app.setNom(saisie1);
-						
 						System.out.println("Quel est son prénom ?");
+						saisie1 = sc.nextLine();
+						app.setPrenom(saisie1);
+						
+						System.out.println("Quel est son nom ?");
 						saisie2 = sc.nextLine();
-						app.setPrenom(saisie2);
+						app.setNom(saisie2);
 						
 						System.out.println("Quel est sa date de naissance ? (format aaaa-mm-jj)");
 						saisie3 = sc.nextLine();
@@ -137,6 +137,8 @@ public class Main {
 						app.setRegion(sc1);
 						
 						Requetes.ajouterAppr(app);
+						
+						System.out.println("Apprenant " + saisie1 + "ajoute");
 					} catch (SQLException e) {	
 							e.printStackTrace();
 					};
