@@ -98,7 +98,7 @@ public class Requetes {
 	public static ArrayList<Activite> getActiviteByApprenant(String nom) throws ClassNotFoundException, SQLException {
 
 		ArrayList<Activite> activites = new ArrayList<>();
-		PreparedStatement aPreparedStatement = AccessBD.getConnection().prepareStatement("select apprenant.nom, apprenant.prenom, activite.AC_NOM, activite.AC_ID from apprenant inner join avoir on apprenant.id = avoir.id_App inner join activite on activite.AC_ID = avoir.id_Act where apprenant.nom = ?");
+		PreparedStatement aPreparedStatement = AccessBD.getConnection().prepareStatement("select * from apprenant inner join avoir on apprenant.id = avoir.id_App inner join activite on activite.AC_ID = avoir.id_Act where apprenant.nom = ?");
 		aPreparedStatement.setString(1,nom);
 		ResultSet resultat = aPreparedStatement.executeQuery();
 		while (resultat.next()){
@@ -108,15 +108,15 @@ public class Requetes {
 		return activites;
 	}
 	
-	public static ArrayList<Activite> getApprenantByActivity(int id) throws ClassNotFoundException, SQLException {
+	public static ArrayList<Apprenant> getApprenantByActivity(int id) throws ClassNotFoundException, SQLException {
 
-		ArrayList<Activite> apprenantAct = new ArrayList<>();
-		PreparedStatement aPreparedStatement = AccessBD.getConnection().prepareStatement("select apprenant.nom, apprenant.prenom, activite.AC_NOM, activite.AC_ID from apprenant inner join avoir on apprenant.id = avoir.id_App inner join activite on activite.AC_ID = avoir.id_Act where activite.AC_ID = ?");
+		ArrayList<Apprenant> apprenantAct = new ArrayList<>();
+		PreparedStatement aPreparedStatement = AccessBD.getConnection().prepareStatement("select * from apprenant inner join avoir on apprenant.id = avoir.id_App inner join activite on activite.AC_ID = avoir.id_Act where activite.AC_ID = ?");
 		aPreparedStatement.setInt(1,id);
 		ResultSet resultat = aPreparedStatement.executeQuery();
 		while (resultat.next()){
-			Activite activitee = Mapping.mapperActivite(resultat);
-			apprenantAct.add(activitee);
+			Apprenant lApprenant = Mapping.mapperApprenant(resultat);
+			apprenantAct.add(lApprenant);
 		}
 		return apprenantAct;
 	}

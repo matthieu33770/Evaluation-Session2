@@ -90,12 +90,12 @@ public class Main {
 					break;
 				case 5:
 					try {
-						ArrayList<Activite> appByAct = new ArrayList<>();
+						ArrayList<Apprenant> appByAct = new ArrayList<>();
 						int id = Integer.parseInt(JOptionPane.showInputDialog("Choisir le numéro d'une activité :"));
 						appByAct = (metier.Requetes.getApprenantByActivity(id));
 						System.out.println("L'activité "+ id + " est faite par :");
-						for (Activite activite : appByAct) {
-							System.out.println(activite);
+						for (Apprenant apprenant : appByAct) {
+							System.out.println(apprenant.afficherNomPrenom());
 						}
 					} catch (ClassNotFoundException e) {
 						e.printStackTrace();
