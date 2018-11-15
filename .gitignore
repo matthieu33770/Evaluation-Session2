@@ -1,6 +1,8 @@
-/.gradle/
+*.class
 # all config files except .gitignore
+
+*.ini
+
 .*
 !.gitignore
-/bin/
-/build/
+
