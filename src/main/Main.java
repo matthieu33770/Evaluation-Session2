@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import metier.Requetes;
 import model.Activite;
 import model.Apprenant;
+import model.Avoir;
 
 public class Main {
 
@@ -17,7 +18,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		int ch;
-		int sc1;
+		int sc1, sc2;
 		String saisie1, saisie2, saisie3, saisie4, saisie5, saisie6;
 		
 		do {
@@ -28,7 +29,8 @@ public class Main {
 			System.out.println("4 - Afficher la liste des activités selon un apprenant");
 			System.out.println("5 - Afficher la liste des apprenant pour une activité");
 			System.out.println("6 - Ajouter un apprenant");
-			System.out.println("7 - Quitter");
+			System.out.println("7 - Ajouter deux activites aux dernier apprenant ajoute");
+			System.out.println("8 - Quitter");
 			ch = sc.nextInt();
 			
 			switch (ch) {
@@ -144,13 +146,26 @@ public class Main {
 					};
 					break;
 				case 7:
+					try {
+					Avoir avoir = new Avoir();
+					
+					System.out.println("Quel est l'activite a ajouter ?");
+					sc2 = sc.nextInt();
+					avoir.setId_Act(sc2);					
+					
+					avoir.setId_App(Requetes.getNombreDApprenant());
+					} catch (SQLException e) {	
+						e.printStackTrace();
+					};
+					break;
+				case 8:
 					System.out.println("Merci & au revoir !");
 					break;
 				default:
 					break;
 			}
 		}
-		while(ch!=7);	
+		while(ch!=8);	
 		//essai
 	}
 }

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import connection.AccessBD;
 import model.Activite;
 import model.Apprenant;
+import model.Avoir;
 import model.Region;
 
 import java.sql.PreparedStatement;
@@ -141,4 +142,11 @@ public class Requetes {
 		 return resultat.getInt(1);
 	}
 	
+	public static void ajouterAct(Avoir avoir) throws SQLException
+	{
+		PreparedStatement prepareStatement = AccessBD.getConnection().prepareStatement("INSERT INTO `avoir` VALUES( ? , ? )");
+		prepareStatement.setInt(1, avoir.getId_Act());
+		prepareStatement.setInt(2, avoir.getId_App());
+		prepareStatement.executeUpdate();
+	}
 }

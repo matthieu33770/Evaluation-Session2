@@ -42,8 +42,8 @@ public class Mapping {
 	
 	public static Avoir mapperAvoir(ResultSet resultat) throws SQLException, ClassNotFoundException{
 		Avoir avoir = new Avoir();
-		avoir.setId_Act(Requetes.getActiviteById(resultat.getInt("AC_ID")));
-		avoir.setId_App(Requetes.getApprenantById1(resultat.getInt("id")));
+		avoir.setId_Act(resultat.getInt("id_Act"));
+		avoir.setId_App(resultat.getInt("id_App"));
 		
 		return avoir;
 	}

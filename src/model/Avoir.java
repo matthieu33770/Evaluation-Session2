@@ -2,32 +2,32 @@ package model;
 
 public class Avoir {
 
-	private Activite id_Act;
-	private Apprenant id_App;
+	private int id_Act;
+	private int id_App;
 	
 	public Avoir() {
 		super();
 	}
 
-	public Avoir(Activite id_Act, Apprenant id_App) {
+	public Avoir(int id_Act, int id_App) {
 		super();
 		this.id_Act = id_Act;
 		this.id_App = id_App;
 	}
 
-	public Activite getId_Act() {
+	public int getId_Act() {
 		return id_Act;
 	}
 
-	public void setId_Act(Activite id_Act) {
+	public void setId_Act(int id_Act) {
 		this.id_Act = id_Act;
 	}
 
-	public Apprenant getId_App() {
+	public int getId_App() {
 		return id_App;
 	}
 
-	public void setId_App(Apprenant id_App) {
+	public void setId_App(int id_App) {
 		this.id_App = id_App;
 	}
 
