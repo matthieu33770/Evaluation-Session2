@@ -1,13 +1,13 @@
 package model;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Apprenant {
 
 		private int id;
 		private String nom;
 		private String prenom;
-		private Date dateNaissance;
+		private Date naissance;
 		private String email;
 		private String photo;
 		private Region region;
@@ -16,12 +16,12 @@ public class Apprenant {
 			super();
 		}
 
-		public Apprenant(int id, String nom, String prenom, Date dateNaissance, String email, String photo,
+		public Apprenant(int id, String nom, String prenom, Date naissance, String email, String photo,
 				Region region) {
 			this.id = id;
 			this.nom = nom;
 			this.prenom = prenom;
-			this.dateNaissance = dateNaissance;
+			this.naissance = naissance;
 			this.email = email;
 			this.photo = photo;
 			this.region = region;
@@ -51,12 +51,12 @@ public class Apprenant {
 			this.prenom = prenom;
 		}
 
-		public Date getDateNaissance() {
-			return dateNaissance;
+		public Date getnaissance() {
+			return naissance;
 		}
 
-		public void setDateNaissance(Date dateNaissance) {
-			this.dateNaissance = dateNaissance;
+		public void setnaissance(Date naissance) {
+			this.naissance = naissance;
 		}
 
 		public String getEmail() {
@@ -85,7 +85,7 @@ public class Apprenant {
 
 		@Override
 		public String toString() {
-			return "Apprenant nom : " + nom + ", prenom : " + prenom + ", dateNaissance : " + dateNaissance
+			return "Apprenant nom : " + nom + ", prenom : " + prenom + ", dateNaissance : " + naissance
 					+ ", email : " + email + ", photo : " + photo + ", region : " + region;
 		}
 		
