@@ -69,7 +69,7 @@ public class Requetes {
 		return apprenants;
 	}
 	
-	public static Apprenant getApprenantById(int id) throws ClassNotFoundException, SQLException {
+	public static Apprenant getApprenantByIdRegion(int id) throws ClassNotFoundException, SQLException {
 		
 		Apprenant apprenant = new Apprenant();
 		
@@ -80,6 +80,7 @@ public class Requetes {
 		apprenant.setRegion(Requetes.getRegionById(resultat.getInt("id_region")));
 		apprenant.setNom(resultat.getString("nom"));
 		apprenant.setPrenom(resultat.getString("prenom"));
+		apprenant.afficheApprenantByRegion();
 		return apprenant;	
 	}
 	

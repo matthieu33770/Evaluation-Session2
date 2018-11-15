@@ -55,7 +55,7 @@ public class Main {
 					break;
 				case 3:
 					try {
-						System.out.println(metier.Requetes.getApprenantById(Integer.parseInt(JOptionPane.showInputDialog("Saisissez un numéro de région (entre 1 et 3) pour afficher les étudiants concernés"))));
+						System.out.println(metier.Requetes.getApprenantByIdRegion(Integer.parseInt(JOptionPane.showInputDialog("Saisissez un numéro de région (entre 1 et 3) pour afficher les étudiants concernés"))));
 					} catch (ClassNotFoundException e) {
 						e.printStackTrace();
 					} catch (SQLException e) {	

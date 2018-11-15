@@ -1,1 +1,1 @@
-SELECT * FROM region WHERE RE_ID=1
+SELECT * FROM avoir
