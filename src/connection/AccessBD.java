@@ -14,7 +14,7 @@ public class AccessBD {
 	 */
 
 		private static String pilote = "com.mysql.cj.jdbc.Driver";
-		private static String url ="jdbc:mysql://localhost:3306/bd-promo?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+		private static String url ="jdbc:mysql://localhost:3306/bd-promo?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
 		private static String utilisateur = "root";
 		private static String motDePasse = "root";
 

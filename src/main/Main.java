@@ -113,23 +113,23 @@ public class Main {
 						app.setId(Requetes.getNombreDApprenant()+1);
 						
 						System.out.println("Quel est son prénom ?");
-						saisie1 = sc.nextLine();
+						saisie1 = sc.next();
 						app.setPrenom(saisie1);
 						
 						System.out.println("Quel est son nom ?");
-						saisie2 = sc.nextLine();
+						saisie2 = sc.next();
 						app.setNom(saisie2);
 						
 						System.out.println("Quel est sa date de naissance ? (format aaaa-mm-jj)");
-						saisie3 = sc.nextLine();
+						saisie3 = sc.next();
 						app.setnaissance(saisie3);
 						
 						System.out.println("Quel est son email ?");
-						saisie4 = sc.nextLine();
+						saisie4 = sc.next();
 						app.setEmail(saisie4);
 						
 						System.out.println("Joindre une photo ?");
-						saisie5 = sc.nextLine();
+						saisie5 = sc.next();
 						app.setPhoto(saisie5);
 						
 						System.out.println("Pour quel département ?");
