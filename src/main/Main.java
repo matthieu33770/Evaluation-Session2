@@ -19,7 +19,7 @@ public class Main {
 			System.out.println("Menu :");
 			System.out.println("1 - Afficher les noms et prenoms des apprenants");
 			System.out.println("2 - Afficher la liste des apprenants par région");
-			System.out.println("3 - Afficher la liste des apprenants par région by id");
+			System.out.println("3 - Afficher la liste des apprenants par région by id Région");
 			System.out.println("4 - Quitter");
 			ch = sc.nextInt();
 			
