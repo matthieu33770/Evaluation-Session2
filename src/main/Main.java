@@ -1,6 +1,5 @@
 package main;
 
-import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -20,7 +19,7 @@ public class Main {
 		
 		int ch;
 		int sc1;
-		String saisie1, saisie2, saisie3, saisie4, saisie5, saisie6, saisie7;
+		String saisie1, saisie2, saisie3, saisie4, saisie5;
 		
 		do {
 			System.out.println("Menu :");
@@ -121,7 +120,7 @@ public class Main {
 						app.setPrenom(saisie2);
 						saisie3 = sc.nextLine();
 						System.out.println("Quel est sa date de naissance ? (format aaaa-mm-jj)");
-						app.setnaissance(Date.valueOf(saisie3));
+						app.setnaissance(saisie3);
 						saisie4 = sc.nextLine();
 						System.out.println("Quel est son email ?");
 						app.setEmail(saisie4);

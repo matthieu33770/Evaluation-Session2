@@ -7,7 +7,7 @@ public class Apprenant {
 		private int id;
 		private String nom;
 		private String prenom;
-		private Date naissance;
+		private String naissance;
 		private String email;
 		private String photo;
 		private Region region;
@@ -16,7 +16,7 @@ public class Apprenant {
 			super();
 		}
 
-		public Apprenant(int id, String nom, String prenom, Date naissance, String email, String photo,
+		public Apprenant(int id, String nom, String prenom, String naissance, String email, String photo,
 				Region region) {
 			this.id = id;
 			this.nom = nom;
@@ -51,11 +51,11 @@ public class Apprenant {
 			this.prenom = prenom;
 		}
 
-		public Date getnaissance() {
+		public String getnaissance() {
 			return naissance;
 		}
 
-		public void setnaissance(Date naissance) {
+		public void setnaissance(String naissance) {
 			this.naissance = naissance;
 		}
 
