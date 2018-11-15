@@ -76,7 +76,7 @@ public class Apprenant {
 		}
 
 		public int getRegion() {
-			return region;
+			return 0;
 		}
 
 		public void setRegion(Region region) {
