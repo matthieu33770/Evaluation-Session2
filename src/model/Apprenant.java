@@ -75,7 +75,7 @@ public class Apprenant {
 			this.photo = photo;
 		}
 
-		public Region getRegion() {
+		public int getRegion() {
 			return region;
 		}
 

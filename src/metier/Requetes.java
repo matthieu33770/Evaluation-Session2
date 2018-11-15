@@ -130,7 +130,7 @@ public class Requetes {
 		prepareStatement.setString(4, apprenant.getnaissance());
 		prepareStatement.setString(5, apprenant.getEmail());
 		prepareStatement.setString(6, apprenant.getPhoto());
-		//prepareStatement.setInt(7, apprenant.getRegion());
+		prepareStatement.setInt(7, apprenant.getRegion());
 		prepareStatement.executeUpdate();
 	}
 	
