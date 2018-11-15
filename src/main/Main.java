@@ -23,7 +23,8 @@ public class Main {
 			System.out.println("2 - Afficher la liste des apprenants par région");
 			System.out.println("3 - Afficher la liste des apprenants selon une région");
 			System.out.println("4 - Afficher la liste des activités selon un apprenant");
-			System.out.println("5 - Quitter");
+			System.out.println("5 - Afficher la liste des apprenant pour une activité");
+			System.out.println("6 - Quitter");
 			ch = sc.nextInt();
 			
 			switch (ch) {
@@ -88,6 +89,21 @@ public class Main {
 					}
 					break;
 				case 5:
+					try {
+						ArrayList<Activite> appByAct = new ArrayList<>();
+						String nom = JOptionPane.showInputDialog("Choisir le numéro d'une activité :");
+						appByAct = (metier.Requetes.getApprenantByActivity(nom));
+						System.out.println("L'activité "+ nom + " est faite par :" + nom + nom);
+						for (Activite activite : appByAct) {
+							System.out.println(activite);
+						}
+					} catch (ClassNotFoundException e) {
+						e.printStackTrace();
+					} catch (SQLException e) {	
+						e.printStackTrace();
+					};
+					break;
+				case 6:
 					System.out.println("Merci & au revoir !");
 					break;
 				default:

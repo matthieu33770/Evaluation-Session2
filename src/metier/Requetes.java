@@ -107,4 +107,17 @@ public class Requetes {
 		}
 		return activites;
 	}
+	
+	public static ArrayList<Activite> getApprenantByActivity(String nom) throws ClassNotFoundException, SQLException {
+
+		ArrayList<Activite> apprenantAct = new ArrayList<>();
+		PreparedStatement aPreparedStatement = AccessBD.getConnection().prepareStatement("select apprenant.nom, apprenant.prenom, activite.AC_NOM, activite.AC_ID from apprenant inner join avoir on apprenant.id = avoir.id_App inner join activite on activite.AC_ID = avoir.id_Act where activite.AC_ID = ?");
+		aPreparedStatement.setString(1,nom);
+		ResultSet resultat = aPreparedStatement.executeQuery();
+		while (resultat.next()){
+			Activite activitee = Mapping.mapperActivite(resultat);
+			apprenantAct.add(activitee);
+		}
+		return apprenantAct;
+	}
 }
