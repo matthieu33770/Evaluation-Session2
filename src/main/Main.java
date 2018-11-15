@@ -19,7 +19,7 @@ public class Main {
 		
 		int ch;
 		int sc1;
-		String saisie1, saisie2, saisie3, saisie4, saisie5;
+		String saisie1, saisie2, saisie3, saisie4, saisie5, saisie6;
 		
 		do {
 			System.out.println("Menu :");
