@@ -9,7 +9,6 @@ import javax.swing.JOptionPane;
 import metier.Requetes;
 import model.Activite;
 import model.Apprenant;
-import model.Region;
 
 public class Main {
 
@@ -112,23 +111,29 @@ public class Main {
 					try {
 						Apprenant app = new Apprenant();
 						app.setId(Requetes.getNombreDApprenant()+1);
-						saisie1 = sc.nextLine();
+						
 						System.out.println("Quel est son nom ?");
+						saisie1 = sc.nextLine();
 						app.setNom(saisie1);
-						saisie2 = sc.nextLine();
+						
 						System.out.println("Quel est son prénom ?");
+						saisie2 = sc.nextLine();
 						app.setPrenom(saisie2);
-						saisie3 = sc.nextLine();
+						
 						System.out.println("Quel est sa date de naissance ? (format aaaa-mm-jj)");
+						saisie3 = sc.nextLine();
 						app.setnaissance(saisie3);
-						saisie4 = sc.nextLine();
+						
 						System.out.println("Quel est son email ?");
+						saisie4 = sc.nextLine();
 						app.setEmail(saisie4);
-						saisie5 = sc.nextLine();
+						
 						System.out.println("Joindre une photo ?");
+						saisie5 = sc.nextLine();
 						app.setPhoto(saisie5);
-						sc1 = sc.nextInt();
+						
 						System.out.println("Pour quel département ?");
+						sc1 = sc.nextInt();
 						app.setRegion(sc1);
 						
 						Requetes.ajouterAppr(app);

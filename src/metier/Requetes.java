@@ -16,7 +16,7 @@ public class Requetes {
 
 	public static ArrayList<Apprenant> getAllApprenant() throws ClassNotFoundException, SQLException {
 		ArrayList<Apprenant>  apprenants = new ArrayList<Apprenant>();
-		String requete	= "SELECT * FROM apprenant ";
+		String requete	= "SELECT * FROM apprenant";
 		ResultSet resultat = AccessBD.executerQuery(requete);
 		while(resultat.next())
 		{

@@ -13,9 +13,9 @@ public class Mapping {
 	public static Apprenant mapperApprenant(ResultSet resultat) throws SQLException, ClassNotFoundException{
 		Apprenant apprenant = new Apprenant();
 		apprenant.setId(resultat.getInt("id"));
-		apprenant.setNom(resultat.getString("nom"));
 		apprenant.setPrenom(resultat.getString("prenom"));
-		apprenant.setnaissance(resultat.getString("naissance"));
+		apprenant.setNom(resultat.getString("nom"));
+		apprenant.setnaissance(resultat.getString("date"));
 		apprenant.setEmail(resultat.getString("email"));
 		apprenant.setPhoto(resultat.getString("photo"));
 		apprenant.setRegion(resultat.getInt("id_Region"));
