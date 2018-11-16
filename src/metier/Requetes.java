@@ -48,6 +48,17 @@ public class Requetes {
 		return apprenant;	
 	}
 	
+	public static Apprenant getApprenantById(int id) throws ClassNotFoundException, SQLException {
+		Apprenant apprenant = new Apprenant();
+		String requete	= "SELECT * FROM apprenant WHERE id="+id;
+		ResultSet resultat = AccessBD.executerQuery(requete);
+		resultat.next();
+		apprenant.setId(resultat.getInt("id"));
+		apprenant.setNom(resultat.getString("nom"));
+		apprenant.setPrenom(resultat.getString("prenom"));
+		return apprenant;	
+	}
+	
 	public static Activite getActiviteById(int id) throws ClassNotFoundException, SQLException {
 		Activite activite = new Activite();
 		String requete	= "SELECT * FROM activite WHERE RE_ID="+id;
@@ -161,5 +172,20 @@ public class Requetes {
 			notUseActivite.add(act);
 		}
 		return notUseActivite;
+	}
+	
+	public static void modifierApprenant(Apprenant apprenant) throws SQLException
+	{
+		try {
+			PreparedStatement prepareStatement = AccessBD.getConnection().prepareStatement("UPDATE apprenant SET nom = ? WHERE id = ? ");
+			prepareStatement.setString(1,apprenant.getNom());
+			prepareStatement.setInt(2, apprenant.getId());
+			prepareStatement.executeUpdate();
+			System.out.println("Modification effectuée pour l'apprenant : "+ apprenant);
+
+		}
+		catch(SQLException e){
+			System.out.println("Erreur lors de la modification !");
+		}
 	}
 }

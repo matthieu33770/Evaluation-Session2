@@ -90,7 +90,7 @@ public class Apprenant {
 		}
 		
 		public String afficherNomPrenom() {
-			return "Apprenant " + nom + " " + prenom;
+			return "Apprenant " + id + nom + " " + prenom;
 		}
 		
 		public String afficheApprenantByRegion() {

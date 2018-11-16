@@ -15,10 +15,10 @@ public class Main {
 
 	public static Scanner sc = new Scanner(System.in);
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException {
 		
 		int ch;
-		int sc1, sc2;
+		int sc1, sc2, sc3;
 		String saisie1, saisie2, saisie3, saisie4, saisie5, saisie6;
 		
 		do {
@@ -31,7 +31,8 @@ public class Main {
 			System.out.println("6 - Ajouter un apprenant");
 			System.out.println("7 - Ajouter deux activites aux dernier apprenant ajoute");
 			System.out.println("8 - Afficher la liste des activité non utilisée");
-			System.out.println("9 - Quitter");
+			System.out.println("9 - Modifier le nom d'un apprenant");
+			System.out.println("10 - Quitter");
 			ch = sc.nextInt();
 			
 			switch (ch) {
@@ -176,13 +177,34 @@ public class Main {
 					}
 					break;
 				case 9:
-					System.out.println("Merci & au revoir !");
+					try {
+						for (Apprenant apprenant : metier.Requetes.getAllApprenant()) {
+							System.out.println(apprenant.afficherNomPrenom());
+						}
+						
+						System.out.println("Quel est lidentifiant de l'apprenant à modifier ?");
+						sc3 = sc.nextInt();
+						//apprenantMod.setId(sc3);
+						
+						Apprenant apprenantMod = Requetes.getApprenantById(sc3);
+								
+						System.out.println("Quel est son nouveau nom ?");
+						saisie6 = sc.next();
+						apprenantMod.setNom(saisie6);
+						
+						Requetes.modifierApprenant(apprenantMod);
+					
+					} catch (SQLException e) {	
+						e.printStackTrace();
+					};
+					break;
+				case 10:
+					System.out.println("Merci et au revoir ! :)");
 					break;
 				default:
 					break;
 			}
 		}
-		while(ch!=9);	
-		//essai
+		while(ch!=10);	
 	}
 }
