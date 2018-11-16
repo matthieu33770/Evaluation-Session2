@@ -8,9 +8,9 @@
 #------------------------------------------------------------
 
 CREATE TABLE Activite(
-        id  Int NOT NULL ,
-        nom Varchar (100) NOT NULL
-	,CONSTRAINT Activite_PK PRIMARY KEY (id)
+        AC_ID  Int NOT NULL ,
+        AC_NOM Varchar (100) NOT NULL
+	,CONSTRAINT Activite_PK PRIMARY KEY (AC_ID)
 )ENGINE=InnoDB;
 
 
@@ -19,9 +19,9 @@ CREATE TABLE Activite(
 #------------------------------------------------------------
 
 CREATE TABLE Region(
-        id  Int  Auto_increment  NOT NULL ,
-        nom Varchar (100) NOT NULL
-	,CONSTRAINT Region_PK PRIMARY KEY (id)
+        RE_ID  Int  Auto_increment  NOT NULL ,
+        RE_NOM Varchar (100) NOT NULL
+	,CONSTRAINT Region_PK PRIMARY KEY (RE_ID)
 )ENGINE=InnoDB;
 
 
@@ -33,26 +33,26 @@ CREATE TABLE Apprenant(
         id            Int  Auto_increment  NOT NULL ,
         nom           Varchar (50) NOT NULL ,
         prenom        Varchar (50) NOT NULL ,
-        dateNaissance Date ,
+        dateNaissance Varchar (10) ,
         email         Varchar (100) NOT NULL ,
-        photo         Longblob ,
-        id_Region     Int NOT NULL
+        photo         Varchar (100) ,
+        RE_ID         Int NOT NULL
 	,CONSTRAINT Apprenant_PK PRIMARY KEY (id)
 
-	,CONSTRAINT Apprenant_Region_FK FOREIGN KEY (id_Region) REFERENCES Region(id)
+	,CONSTRAINT Apprenant_Region_FK FOREIGN KEY (RE_ID) REFERENCES Region(RE_ID)
 )ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
-# Table: possede
+# Table: avoir
 #------------------------------------------------------------
 
-CREATE TABLE possede(
-        id           Int NOT NULL ,
-        id_Apprenant Int NOT NULL
-	,CONSTRAINT possede_PK PRIMARY KEY (id,id_Apprenant)
+CREATE TABLE avoir(
+        AC_ID Int NOT NULL ,
+        id    Int NOT NULL
+	,CONSTRAINT avoir_PK PRIMARY KEY (AC_ID,id)
 
-	,CONSTRAINT possede_Activite_FK FOREIGN KEY (id) REFERENCES Activite(id)
-	,CONSTRAINT possede_Apprenant0_FK FOREIGN KEY (id_Apprenant) REFERENCES Apprenant(id)
+	,CONSTRAINT avoir_Activite_FK FOREIGN KEY (AC_ID) REFERENCES Activite(AC_ID)
+	,CONSTRAINT avoir_Apprenant0_FK FOREIGN KEY (id) REFERENCES Apprenant(id)
 )ENGINE=InnoDB;
 
