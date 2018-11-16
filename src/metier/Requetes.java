@@ -1,6 +1,7 @@
 package metier;
 
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import connection.AccessBD;
@@ -186,6 +187,21 @@ public class Requetes {
 		}
 		catch(SQLException e){
 			System.out.println("Erreur lors de la modification !");
+		}
+	}
+	
+	public static void supprimerApprenant(Apprenant apprenant) throws SQLException
+	{
+		Statement statement = null;
+
+		try {
+			statement = AccessBD.getConnection().createStatement();
+			String sql = "DELETE FROM apprenant WHERE id="+ apprenant.getId();
+			statement.executeUpdate(sql);
+			System.out.println("Suppression de l'apprenant "+ apprenant + " effectuée");
+		}
+		catch(SQLException e){
+			System.out.println("Erreur lors de la suppression de l'apprenant !");
 		}
 	}
 }

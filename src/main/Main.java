@@ -18,7 +18,7 @@ public class Main {
 	public static void main(String[] args) throws ClassNotFoundException {
 		
 		int ch;
-		int sc1, sc2, sc3;
+		int sc1, sc2, sc3, sc4;
 		String saisie1, saisie2, saisie3, saisie4, saisie5, saisie6;
 		
 		do {
@@ -32,7 +32,8 @@ public class Main {
 			System.out.println("7 - Ajouter deux activites aux dernier apprenant ajoute");
 			System.out.println("8 - Afficher la liste des activité non utilisée");
 			System.out.println("9 - Modifier le nom d'un apprenant");
-			System.out.println("10 - Quitter");
+			System.out.println("10 - Suppression d'un apprenant");
+			System.out.println("11 - Quitter");
 			ch = sc.nextInt();
 			
 			switch (ch) {
@@ -199,12 +200,33 @@ public class Main {
 					};
 					break;
 				case 10:
+					try {
+						for (Apprenant apprenant : metier.Requetes.getAllApprenant()) {
+							System.out.println(apprenant.afficherNomPrenom());
+						}
+						
+						System.out.println("Quel est lidentifiant de l'apprenant à supprimer ?");
+						sc4 = sc.nextInt();
+					
+						Apprenant apprenantSup = Requetes.getApprenantById(sc4);
+						if (apprenantSup!=null) {
+							// je l'affiche
+							System.out.println(apprenantSup.afficherNomPrenom());
+							
+							// je le supprime (pan !! pan !! il est mort... dans la base de données uniquement ;) nous ne sommes pas une organisation criminelle !! 
+							Requetes.supprimerApprenant(apprenantSup);
+						}
+					} catch (SQLException e) {	
+						e.printStackTrace();
+					};
+					break;
+				case 11:
 					System.out.println("Merci et au revoir ! :)");
 					break;
 				default:
 					break;
 			}
 		}
-		while(ch!=10);	
+		while(ch!=11);	
 	}
 }
