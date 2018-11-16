@@ -149,4 +149,17 @@ public class Requetes {
 		prepareStatement.setInt(2, avoir.getId_App());
 		prepareStatement.executeUpdate();
 	}
+	
+	public static ArrayList<Activite> getNotUseActivite() throws ClassNotFoundException, SQLException {
+		
+		ArrayList<Activite> notUseActivite = new ArrayList<Activite>();
+		String requete = "select * from avoir RIGHT OUTER JOIN activite ON avoir.id_Act = activite.AC_ID WHERE id_Act IS NULL";
+		ResultSet resultat = AccessBD.executerQuery(requete);
+		while(resultat.next())
+		{
+			Activite act = Mapping.mapperActivite(resultat);
+			notUseActivite.add(act);
+		}
+		return notUseActivite;
+	}
 }

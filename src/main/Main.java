@@ -30,7 +30,8 @@ public class Main {
 			System.out.println("5 - Afficher la liste des apprenant pour une activité");
 			System.out.println("6 - Ajouter un apprenant");
 			System.out.println("7 - Ajouter deux activites aux dernier apprenant ajoute");
-			System.out.println("8 - Quitter");
+			System.out.println("8 - Afficher la liste des activité non utilisée");
+			System.out.println("9 - Quitter");
 			ch = sc.nextInt();
 			
 			switch (ch) {
@@ -162,13 +163,26 @@ public class Main {
 					};
 					break;
 				case 8:
+					try {
+						System.out.println("Voici la liste des activités qui ne sont pas utilisées par un / des apprenant(s)");
+
+						for (Activite activite : metier.Requetes.getNotUseActivite()) {
+							System.out.println(activite);
+						}
+					} catch (ClassNotFoundException e) {
+						e.printStackTrace();
+					} catch (SQLException e) {	
+						e.printStackTrace();
+					}
+					break;
+				case 9:
 					System.out.println("Merci & au revoir !");
 					break;
 				default:
 					break;
 			}
 		}
-		while(ch!=8);	
+		while(ch!=9);	
 		//essai
 	}
 }
